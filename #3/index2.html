@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src = "https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src = "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src = "https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type = "text/babel"> 
+        //React를 import -> createElement function 가진 React object에 접근
+        //생성하고자 하는 html 태그와 같은 이름
+        const root = document.getElementById("root");
+        let counter = 0;
+        function countUp(){
+            counter = counter + 1;
+            render();
+        }
+        
+        function render(){
+            ReactDOM.render(<Container/>,root);
+        }
+
+        const Container = () => (
+            <div> 
+            <h3>Total Clicks: {counter}</h3>
+            <button onClick = {countUp}>Click me</button>
+            </div>
+        );
+
+        render();
+    </script>
+</html>
